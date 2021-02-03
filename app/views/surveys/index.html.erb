@@ -1,0 +1,18 @@
+
+<% if @surveys.any? %>
+  <h1>ALL THE SURVEY LINKS</h1>
+  <% @surveys.each do |s| %>
+    <%= s.link %>
+    <%= link_to "Survey Link Page", survey_path(s) %><br>
+  <% end %>
+<% else %>
+  <h1>No survey links, yet, friend.</h1>
+<% end %>
+
+<h1>ADD A SURVEY LINK!</h1>
+<%= button_to "Add a link!", "/surveys/new", method: :get%>
+
+<h1>THIS IS YOUR SITE GENERATOR LINK</h1>
+<a href="http://localhost:3000/<%= user_path(current_user.id) %>">http://localhost:3000<%= user_path(current_user.id) %></a><br><br>
+
+<%= button_to "Logout", '/logout', method: :post%>

@@ -1,0 +1,12 @@
+<h1>Bare Bones Survey Site Randomizer and Intermediator</h1>
+
+<h2>Oh, hai!</h2>
+<% if logged_in? %>
+    <h3>You are logged in, <%= current_user.username %>, but it's great you stopped by to say hello.</h3>
+    <%= button_to "Logout", '/logout', method: :post%>
+<% else %>
+  <h3>It's nice to see you: login or sign up.</h3>
+  <p>One sign up per group is ideal.</p>
+  <%= button_to "Login", '/login', method: :get%>
+  <%= button_to "Sign Up", '/users/new', method: :get%>
+<% end %>
